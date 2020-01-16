@@ -149,12 +149,14 @@
 					"uuid": "4A5F8B40-0BA4-4B2D-A954-794D9E02C999",
 					"type": "Group",
 					"name": "Custom Axis Helper",
+					"visible": false,
 					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]
 				},
 				{
 					"uuid": "74DE70E9-03E9-41CC-ADE7-0787810CF989",
 					"type": "Group",
 					"name": "Custon Origin Helper",
+					"visible": false,
 					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]
 				}]
 		}
