@@ -86,7 +86,7 @@
 		"085FE47C-3513-4030-A167-EEFED0D28AB7": [
 			{
 				"name": "groundHelper.js",
-				"source": "groundHelper = this;  \n\nvar step = 10;\nvar size = 1000;\nvar name = \"ground helper\";\n\nthis.add( new GroundHelper(size, step, name) );\n\nfunction GroundHelper(size, step, name){\n\n\tif (!step) step = 10;\n\tif (!size) size = 1000;\n\n\tvar grid = new THREE.GridHelper( xz, step, 0x444444, 0x444444 );\n\n\tgrid.name = name || \"GRID\";\n\tgrid.position.y = 0;\n\n\treturn grid;\n}\n"
+				"source": "groundHelper = this;  \n\nvar step = 10;\nvar size = 1000;\nvar name = \"ground helper\";\n\nthis.add( new GroundHelper(size, step, name) );\n\nfunction GroundHelper(size, step, name){\n\n\tif (!step) step = 10;\n\tif (!size) size = 1000;\n\n\tvar grid = new THREE.GridHelper( size, step, 0x444444, 0x444444 );\n\n\tgrid.name = name || \"GRID\";\n\tgrid.position.y = 0;\n\n\treturn grid;\n}\n"
 			}]
 	},
 	"camera": {
@@ -105,7 +105,7 @@
 			"near": 0.1,
 			"far": 10000,
 			"focus": 10,
-			"aspect": 1.0584028605482718,
+			"aspect": 1.018348623853211,
 			"filmGauge": 35,
 			"filmOffset": 0
 		}
