@@ -85,8 +85,13 @@
 			}],
 		"085FE47C-3513-4030-A167-EEFED0D28AB7": [
 			{
-				"name": "groundHelper.js",
-				"source": "groundHelper = this;  \n\nvar step = 10;\nvar size = 1000;\nvar name = \"ground helper\";\n\nthis.add( new GroundHelper(size, step, name) );\n\nfunction GroundHelper(size, step, name){\n\n\tif (!step) step = 10;\n\tif (!size) size = 1000;\n\n\tvar grid = new THREE.GridHelper( size, step, 0x444444, 0x444444 );\n\n\tgrid.name = name || \"GRID\";\n\tgrid.position.y = 0;\n\n\treturn grid;\n}\n"
+				"name": "ground-helper.js",
+				"source": "groundHelper = this;  \n\nvar step = 10;\nvar size = 1000;\nvar name = \"ground helper\";\n\nthis.add( new helper(size, step, name) );\n\nfunction helper(size, step, name){\n\n\tif (!step) step = 10;\n\tif (!size) size = 1000;\n\n\tvar grid = new THREE.GridHelper( size, step, 0x444444, 0x444444 );\n\n\tgrid.name = name || \"GRID\";\n\tgrid.position.y = 0;\n\n\treturn grid;\n}\n"
+			}],
+		"4A5F8B40-0BA4-4B2D-A954-794D9E02C999": [
+			{
+				"name": "custom-axis-helper.js",
+				"source": "CustomAxisHelper = this;\n\nvar distance = 5200;\nthis.add( new helper( distance ) );\n\nfunction helper( distance ){\n\n\tvar geometryX = new THREE.Geometry();\n\tvar geometryY = new THREE.Geometry();\n\tvar geometryZ = new THREE.Geometry();\n\n\tvar materialX = new THREE.LineBasicMaterial( {color: 0xff0000} );\n\tvar materialY = new THREE.LineBasicMaterial( {color: 0x00ff00} );\n\tvar materialZ = new THREE.LineBasicMaterial( {color: 0x0000ff} );\n\n\tgeometryX.vertices.push( new THREE.Vector3( -distance, 0, 0 ), new THREE.Vector3( distance, 0, 0 ) );\n\tgeometryY.vertices.push( new THREE.Vector3( 0, -distance, 0 ), new THREE.Vector3( 0, distance, 0 ) );\n\tgeometryZ.vertices.push( new THREE.Vector3( 0, 0, -distance ), new THREE.Vector3( 0, 0, distance ) );\n\n\tvar axisX = new THREE.Line( geometryX, materialX );\n\tvar axisY = new THREE.Line( geometryY, materialY );\n\tvar axisZ = new THREE.Line( geometryZ, materialZ );\n\n\treturn [ axisX, axisZ ];\n\n}\n"
 			}]
 	},
 	"camera": {
@@ -133,6 +138,12 @@
 					"uuid": "085FE47C-3513-4030-A167-EEFED0D28AB7",
 					"type": "Group",
 					"name": "Ground Helper",
+					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]
+				},
+				{
+					"uuid": "4A5F8B40-0BA4-4B2D-A954-794D9E02C999",
+					"type": "Group",
+					"name": "Custom Axis Helper",
 					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]
 				}]
 		}
