@@ -82,6 +82,11 @@
 			{
 				"name": "cameraLight.js",
 				"source": "//\tcameraLight.js\n\ncameraLight = new THREE.DirectionalLight( 0xffffff, 0.75 );\n\ncameraLight.intensity = 0.75;\ncameraLight.castShadow = true; // important!\ncameraLight.position.copy( camera.position );\ncameraLight.shadow.mapSize.width  = Math.pow(2, 10); // 2048;\ncameraLight.shadow.mapSize.height = Math.pow(2, 10); // 2048;\n\nvar d = 30;\n\ncameraLight.shadow.camera.left = - d;\ncameraLight.shadow.camera.right = d;\ncameraLight.shadow.camera.top = d;\ncameraLight.shadow.camera.bottom = - d;\ncameraLight.shadow.camera.far = 10000;\n\n//\tTARGET.\n\ncameraLight.target = localPlayer.outfit.direction; // important!\n\nscene.add( cameraLight );\n\n//  HELPER.\n\nvar shadowCameraHelper = new THREE.CameraHelper( cameraLight.shadow.camera );\nshadowCameraHelper.visible = false;\nscene.add( shadowCameraHelper );\n\n\n//\tUPDATE.\n\nfunction update(){\n\n\tcameraLight.position.copy( camera.position );\n\n\tshadowCameraHelper.update();\n\n}\n"
+			}],
+		"085FE47C-3513-4030-A167-EEFED0D28AB7": [
+			{
+				"name": "groundHelper.js",
+				"source": "groundHelper = this;  \n\nvar step = 10;\nvar size = 1000;\nvar name = \"ground helper\";\n\nthis.add( new GroundHelper(size, step, name) );\n\nfunction GroundHelper(size, step, name){\n\n\tif (!step) step = 10;\n\tif (!size) size = 1000;\n\n\tvar grid = new THREE.GridHelper( xz, step, 0x444444, 0x444444 );\n\n\tgrid.name = name || \"GRID\";\n\tgrid.position.y = 0;\n\n\treturn grid;\n}\n"
 			}]
 	},
 	"camera": {
@@ -100,7 +105,7 @@
 			"near": 0.1,
 			"far": 10000,
 			"focus": 10,
-			"aspect": 1.018348623853211,
+			"aspect": 1.0584028605482718,
 			"filmGauge": 35,
 			"filmOffset": 0
 		}
@@ -122,6 +127,12 @@
 					"type": "Group",
 					"name": "Local Player",
 					"visible": false,
+					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]
+				},
+				{
+					"uuid": "085FE47C-3513-4030-A167-EEFED0D28AB7",
+					"type": "Group",
+					"name": "Ground Helper",
 					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]
 				}]
 		}
