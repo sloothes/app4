@@ -36,7 +36,7 @@
 			},
 			{
 				"name": "Geometries.js",
-				"source": "try { Geometries; } catch(err){ Geometries = []; }\n\nvar db = new zango.Db( \"InAbox\", {\n\t\"Geometries\": true,\n});\n\ndb.open().then(function(err){\n\n\tdb.collection(\"Geometries\").find().forEach(\n\n\t\tfunction(doc){\n\t\t\tdelete doc._id;\n\t\t\tGeometries.push( doc );\n\t\t}, \n\n\t\tfunction(err){\n\t\t\tif (err) console.error(err);\n\t\t}\n\n\t);\n\n});\n"
+				"source": "try { Geometries; } catch(err){ Geometries = []; }\n\nvar db = new zango.Db( \"InAbox\", {\n\t\"Geometries\": true,\n});\n\ndb.open().then(function(err){\n\n\tdb.collection(\"Geometries\").find().forEach(\n\n\t\tfunction(doc){\n\t\t\tdelete doc._id;\n\t\t\tGeometries.push( doc );\n\t\t}, \n\n\t\tfunction(err){\n\t\t\tif (err) console.error(err);\n\t\t}\n\n\t).then(function(){\n\n\t\tdb.close();\n\n\t\tdebugMode && console.log( Geometries );\n\t});\n\n});\n"
 			},
 			{
 				"name": "Materials-Textures.js",
